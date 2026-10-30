@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-30T12:22:15.775Z",
+  "generatedAt": "2026-10-30T14:51:26.935Z",
   "title": "Design System: Veritas Lava Jato",
   "extensions": {
     "colorMeta": {
@@ -169,6 +169,11 @@
         "name": "The Accent Has a Job Rule",
         "body": "Use red for contact actions and the delivery offer within the black, graphite and silver identity.",
         "section": "colors"
+      },
+      {
+        "name": "Catalogue price clarity",
+        "body": "Keep catalogue prices separate from delivery and promotional offers. Use a flat responsive comparison table with currency in its caption and full BRL accessible cell labels, native disclosures for inclusions, and ruled additional-service lists.",
+        "section": "components"
       }
     ],
     "dos": [

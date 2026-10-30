@@ -20,6 +20,20 @@ with sync_playwright() as p:
     assert page.locator('h1').count() == 1
     assert page.title().startswith('Veritas Lava Jato')
     assert page.locator('html').get_attribute('lang') == 'pt-BR'
+    if page.locator('#catalogo').count():
+        catalog = page.locator('#catalogo')
+        expect(catalog.locator('tbody tr')).to_have_count(3)
+        expect(catalog.locator('tbody td')).to_have_count(9)
+        details = catalog.locator('details').first
+        details.locator('summary').focus()
+        page.keyboard.press('Enter')
+        expect(details).to_have_attribute('open', '')
+        expect(details.locator('li')).to_have_count(5)
+        page.keyboard.press('Enter')
+        expect(details).not_to_have_attribute('open', '')
+        pdf_path = catalog.locator('a[download]').get_attribute('href')
+        pdf = page.request.get(os.environ.get('VERITAS_TEST_URL', 'http://127.0.0.1:3100')+pdf_path)
+        assert pdf.status == 200 and pdf.body().startswith(b'%PDF-')
     for link in page.locator('a[href^="#"]').all():
         target = link.get_attribute('href')
         assert target != '#' and page.locator(target).count() == 1, target
@@ -90,7 +104,10 @@ with sync_playwright() as p:
             page.evaluate('window.scrollTo(0,0)')
         page.wait_for_function('window.scrollY === 0')
         page.wait_for_timeout(500)
-        page.screenshot(path=str(review / (filename+'.png')), full_page=True, animations='disabled', style='.site-header { position: relative !important; } .floating-whatsapp { position: absolute !important; top: calc(100vh - 68px); bottom: auto !important; }')
+        page.evaluate('document.activeElement instanceof HTMLElement && document.activeElement.blur()')
+        page.screenshot(path=str(review / (filename+'.png')), full_page=True, animations='disabled', style='.site-header { position: relative !important; } .floating-whatsapp { position: absolute !important; top: calc(100vh - 68px); bottom: auto !important; } .skip-link { visibility: hidden !important; }')
+        if page.locator('#catalogo').count():
+            page.locator('#catalogo').screenshot(path=str(review / ('catalog-'+filename+'.png')), animations='disabled', style='.site-header { position: relative !important; } .floating-whatsapp,.skip-link { visibility: hidden !important; }')
     assert not errors, errors
     result = {'status':'passed','viewports':[1440,390,768,320], 'checks':['menu','anchors','links','filters','show more','modal','keyboard','focus trap','focus restoration','scroll lock','video metadata','no horizontal overflow','no JS errors']}
     (review / 'browser-results.json').write_text(json.dumps(result, indent=2), encoding='utf-8')

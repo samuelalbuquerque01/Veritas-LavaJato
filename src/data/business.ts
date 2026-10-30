@@ -58,6 +58,7 @@ export const money = (value: number) => new Intl.NumberFormat('pt-BR', { style: 
 export const navigation = [
   { href: '#inicio', label: 'Início' },
   { href: '#servicos', label: 'Serviços' },
+  { href: '#catalogo', label: 'Catálogo' },
   { href: '#trabalhos', label: 'Trabalhos' },
   { href: '#delivery', label: 'Delivery' },
   { href: '#contato', label: 'Contato' },

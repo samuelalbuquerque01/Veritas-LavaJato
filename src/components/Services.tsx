@@ -15,7 +15,7 @@ export default function Services() {
       </div>
       <div className="services-list">
         {services.map(service => <article key={service.title}><h3>{service.title}</h3><p>{service.description}</p></article>)}
-        <a className="text-link" href="#contato">Fale sobre o seu veículo <Icon name="arrow" /></a>
+        <a className="text-link" href="#catalogo">Ver catálogo de preços <Icon name="arrow" /></a>
       </div>
     </div>
   </section>;

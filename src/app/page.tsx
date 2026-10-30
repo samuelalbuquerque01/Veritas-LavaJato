@@ -2,6 +2,7 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
+import Catalog from '@/components/Catalog';
 import Gallery from '@/components/Gallery';
 import { Delivery, Promotion } from '@/components/Offers';
 import Contact from '@/components/Contact';
@@ -16,6 +17,7 @@ export default function Home() {
     <main id="conteudo">
       <Hero />
       <Services />
+      <Catalog />
       <Gallery />
       <Delivery />
       <Promotion />

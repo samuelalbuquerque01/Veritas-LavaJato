@@ -168,6 +168,10 @@ A top-ruled strip immediately below the hero exposes location, hours and WhatsAp
 
 The full-viewport near-black dialog centers the photograph and its caption with circular navigation and close controls. Arrow keys navigate images, focus stays within the dialog, and closing restores focus to the opening image button.
 
+### Service Catalogue
+
+The service catalogue is a flat Graphite section with a comparison table for car sizes, a separate motorcycle price, native disclosure rows for included items and ruled additional-service lists. Currency is declared in the table caption to keep narrow columns readable; cells expose complete BRL prices through accessible labels. The layout becomes one column at 1000px and keeps the table legible down to 320px. PDF download and WhatsApp consultation remain explicit actions. Styles are scoped in `Catalog.module.css`; the catalogue inherits the global palette and type roles.
+
 ## Do's and Don'ts
 
 ### Do:

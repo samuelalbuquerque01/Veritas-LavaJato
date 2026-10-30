@@ -35,6 +35,8 @@ O script opcional `scripts/browser-check.py` usa Python Playwright e Google Chro
 ## Atualizar conteúdo
 
 - `src/data/business.ts`: nome, slogan, contatos, endereço, horários, navegação, seis serviços, valores e itens do delivery, adicional e promoção.
+- `src/data/catalog.ts`: catálogo de preços transcrito do PDF, com lavagens por porte, itens inclusos, moto e adicionais. `null` representa um preço a consultar. A tabela é independente das ofertas de delivery e promoção.
+- `public/documents/catalogo-veritas-lava-jato.pdf`: PDF original disponível para download. Ao atualizar preços, revise os dados e substitua o documento para manter as duas versões consistentes.
 - `business.whatsapp`: altere também o número de destino; `whatsapp(message)` codifica mensagens automaticamente.
 - `business.address`: também alimenta a pesquisa do Google Maps, sem coordenadas inventadas.
 - `promotion.enabled`: use `false` para remover toda a seção promocional sem editar componentes.

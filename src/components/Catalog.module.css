@@ -1,0 +1,63 @@
+.catalog { background:var(--surface); }
+.heading { display:flex; align-items:flex-end; justify-content:space-between; gap:32px; margin-bottom:40px; }
+.heading p { max-width:62ch; font-size:15px; color:var(--muted); margin:20px 0 0; }
+.heading>a { flex-shrink:0; }
+.washes { display:grid; grid-template-columns:minmax(0,1.8fr) minmax(0,1fr); gap:clamp(32px,5vw,72px); align-items:start; }
+.prices { border-collapse:collapse; width:100%; table-layout:fixed; text-align:left; }
+.prices caption { text-align:left; font-size:20px; font-weight:600; padding-bottom:22px; }
+.prices caption>span { display:block; font-size:12px; font-weight:400; color:var(--muted); margin-top:6px; }
+.prices th,.prices td { border-bottom:1px solid var(--line); padding:20px 10px; }
+.prices th:first-child { width:37%; padding-left:0; }
+.prices thead th { color:var(--muted); font-size:12px; font-weight:500; vertical-align:bottom; }
+.prices tbody th { font-size:15px; font-weight:500; }
+.prices td { font-family:var(--display); font-size:27px; font-weight:500; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.includes { margin-top:28px; }
+.details { border-bottom:1px solid var(--line); }
+.details summary { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:52px; padding-block:15px; font-size:14px; cursor:pointer; list-style:none; }
+.details summary::-webkit-details-marker { display:none; }
+.chevron { width:17px; height:17px; transition:transform .2s; }
+.details[open] .chevron { transform:rotate(90deg); }
+.details ul,.motorcycle ul { display:grid; gap:12px; padding:4px 0 22px; }
+.details li,.motorcycle li { display:flex; align-items:flex-start; gap:10px; color:var(--muted); font-size:14px; }
+.details li svg,.motorcycle li svg { width:17px; height:17px; margin-top:3px; }
+.motorcycle { border-top:1px solid var(--line); padding-top:22px; }
+.motorcycle h3 { font-size:20px; }
+.motorcycle>strong { display:block; font-family:var(--display); font-size:54px; font-weight:500; line-height:1.15; margin:12px 0 24px; }
+.motorcycle>a { font-size:13px; }
+.additional { display:grid; grid-template-columns:minmax(0,1.8fr) minmax(0,1fr); gap:clamp(32px,5vw,72px); margin-top:54px; padding-top:36px; border-top:1px solid var(--line); }
+.additional h3 { font-size:20px; margin-bottom:18px; }
+.additional dl { margin:0; }
+.additional dl>div { display:flex; align-items:baseline; justify-content:space-between; gap:24px; padding:18px 0; border-bottom:1px solid var(--line); }
+.additional dt { font-size:14px; }
+.additional dt>span { display:block; font-size:12px; color:var(--muted); margin-top:6px; }
+.additional dd { margin:0; white-space:nowrap; font-size:16px; font-variant-numeric:tabular-nums; }
+.footer { display:flex; justify-content:space-between; align-items:center; gap:32px; margin-top:36px; }
+.footer p { max-width:54ch; color:var(--muted); font-size:13px; margin:0; }
+.footer>a { flex-shrink:0; }
+@media(max-width:1000px) {
+  .heading { display:block; }
+  .heading>a { margin-top:16px; }
+  .washes,.additional { grid-template-columns:1fr; gap:36px; }
+  .motorcycle { padding-top:26px; }
+  .motorcycle ul { grid-template-columns:1fr 1fr; }
+  .motorcycle>strong { font-size:48px; margin-bottom:20px; }
+}
+@media(max-width:600px) {
+  .heading { margin-bottom:28px; }
+  .heading p { font-size:14px; }
+  .prices caption { font-size:18px; }
+  .prices th,.prices td { padding:18px 5px; }
+  .prices th:first-child { width:34%; }
+  .prices thead th { font-size:11px; }
+  .prices tbody th { font-size:13px; }
+  .prices td { font-size:22px; }
+  .details summary { font-size:13px; }
+  .motorcycle ul { grid-template-columns:1fr; }
+  .additional { padding-top:28px; margin-top:36px; }
+  .additional dl>div { gap:18px; }
+  .additional dt { font-size:14px; }
+  .additional dd { font-size:15px; }
+  .footer { flex-direction:column; align-items:stretch; gap:22px; }
+  .footer>a { width:100%; }
+}
+@media(prefers-reduced-motion:reduce) { .chevron { transition:none; } }

@@ -30,6 +30,8 @@ Nome Veritas Lava Jato. “A verdade no cuidado. A confiança em cada detalhe.�
 
 ## Evidence on Hand
 
+Catálogo Digital Veritas Lava Jato, PDF de duas páginas fornecido pelo usuário. Cópia original em `public/documents/catalogo-veritas-lava-jato.pdf`; transcrição em `src/data/catalog.ts`. Fonte confirmada para as lavagens simples, intermediária e completa por porte, lavagem de moto e serviços adicionais. Limpeza de motor: a consultar. Preços do catálogo permanecem separados do delivery e da promoção.
+
 Três artes fornecidas pelo usuário confirmam serviços e ofertas. Pasta Fotos serviços nos anexos locais contém JPG, HEIC e MOV; apenas registros inspecionados serão classificados como trabalhos. Fotos ilustrativas dos cartazes não são prova de trabalhos da empresa.
 
 ## Product Principles

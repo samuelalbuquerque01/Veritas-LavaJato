@@ -5,6 +5,20 @@ import sharp from 'sharp';
 import { business, delivery, promotion, services, whatsapp, money } from '../src/data/business.ts';
 import { gallery, categories } from '../src/data/gallery.ts';
 import { siteUrl, localBusinessSchema } from '../src/data/business.ts';
+import { catalog } from '../src/data/catalog.ts';
+
+test('catalogue prices match the supplied PDF and remain separate from delivery', () => {
+  assert.deepEqual(catalog.carWashes.map(item => item.prices), [
+    [49.99, 59.99, 69.99], [69.99, 79.99, 89.99], [89.99, 99.99, 109.99],
+  ]);
+  assert.equal(catalog.motorcycle.price, 29.99);
+  assert.equal(delivery.prices.find(item => item.label === 'Moto').price, 34.99);
+  assert.deepEqual(catalog.additionalCars.map(item => item.price), [null, 79.99, 99.99, 179.99, 24.99]);
+  assert.deepEqual(catalog.additionalMotorcycles.map(item => item.price), [14.99, 14.99]);
+  assert.equal(catalog.commonItems.length, 5);
+  assert.equal(catalog.carWashes[2].additionalItems.length, 2);
+  assert.ok(existsSync(`public${catalog.pdfUrl}`));
+});
 
 test('SEO uses the official domain and only confirmed local business facts', () => {
   assert.equal(siteUrl, 'https://veritaslavajato.com.br');
