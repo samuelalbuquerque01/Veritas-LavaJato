@@ -6,10 +6,11 @@ import Gallery from '@/components/Gallery';
 import { Delivery, Promotion } from '@/components/Offers';
 import Contact from '@/components/Contact';
 import Icon from '@/components/Icon';
-import { business } from '@/data/business';
+import { business, localBusinessSchema } from '@/data/business';
 
 export default function Home() {
   return <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, '\\u003c') }} />
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <Header />
     <main id="conteudo">

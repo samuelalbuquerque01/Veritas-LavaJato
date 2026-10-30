@@ -64,7 +64,9 @@ O script opcional `scripts/browser-check.py` usa Python Playwright e Google Chro
 
 ## SEO, fontes e limitações
 
-Não foi informado domínio de produção. Nenhum domínio comercial ou canonical foi inventado. O Next.js avisa no build que resolve a imagem de compartilhamento usando localhost quando metadataBase está ausente. Quando houver domínio confirmado, configure `metadataBase: new URL('https://dominio-confirmado')` em `src/app/layout.tsx` antes de publicar. O site não foi publicado.
+Domínio oficial: `https://veritaslavajato.com.br`, centralizado em `siteUrl` em `src/data/business.ts`. A Metadata API utiliza esse endereço para canonical e compartilhamento. `src/app/robots.ts` e `sitemap.ts` geram os arquivos de indexação. O JSON-LD usa o tipo AutoWash, com nome, endereço, contato, imagens reais e horários; não inclui avaliações, coordenadas ou área de cobertura inventadas. Ao alterar os horários, mantenha os textos e os campos `opens`, `closes` e `daysOfWeek` consistentes.
+
+Depois de gerar o build e iniciar o servidor, `node --experimental-strip-types scripts/seo-check.mjs` verifica o HTML e os endpoints de SEO. Usa `VERITAS_TEST_URL` quando definido; por padrão aponta para http://127.0.0.1:3400. O domínio precisa ser conectado à hospedagem; o código não modifica DNS. Após a publicação, o sitemap pode ser enviado ao Google Search Console.
 
 Fontes Barlow Condensed e Manrope hospedadas localmente, carregadas com next/font/local, com licenças OFL em `public/fonts`. Não é necessário acessar o Google Fonts para executar ou compilar. `scripts/download-fonts.mjs` registra o download original; fontes não são baixadas no build.
 

@@ -6,6 +6,8 @@
 
 web
 
+Domínio oficial confirmado: https://veritaslavajato.com.br.
+
 ## Users
 
 Pessoas com carros e motos que procuram serviços de limpeza em Messejana, Fortaleza, ou desejam consultar lavagem no próprio endereço.

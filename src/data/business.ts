@@ -1,3 +1,11 @@
+export const siteUrl = 'https://veritaslavajato.com.br';
+const addressDetails = {
+  street: 'Avenida Frei Cirilo, 4201',
+  neighborhood: 'Messejana',
+  city: 'Fortaleza',
+  region: 'CE',
+  country: 'BR',
+};
 export const business = {
   name: 'Veritas Lava Jato',
   slogan: 'A verdade no cuidado. A confiança em cada detalhe.',
@@ -7,17 +15,45 @@ export const business = {
   email: 'veritaslavajato@gmail.com',
   instagram: 'https://www.instagram.com/veritaslavajato/',
   instagramHandle: '@veritaslavajato',
-  address: 'Avenida Frei Cirilo, 4201 — Messejana, Fortaleza — CE',
+  address: `${addressDetails.street} — ${addressDetails.neighborhood}, ${addressDetails.city} — ${addressDetails.region}`,
+  addressDetails,
   complement: 'Fundos',
   reference: 'Em frente ao Supermercado Pinheiro',
   hours: [
-    { days: 'Segunda a sexta', time: '8h às 17h' },
-    { days: 'Sábado', time: '8h às 14h' },
+    { days: 'Segunda a sexta', time: '8h às 17h', daysOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '17:00' },
+    { days: 'Sábado', time: '8h às 14h', daysOfWeek: ['Saturday'], opens: '08:00', closes: '14:00' },
   ],
 };
 export const whatsapp = (message = 'Olá! Gostaria de saber mais sobre os serviços da Veritas Lava Jato.') =>
   `${business.whatsapp}?text=${encodeURIComponent(message)}`;
 export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(business.address)}`;
+export const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoWash',
+  '@id': `${siteUrl}/#empresa`,
+  name: business.name,
+  url: `${siteUrl}/`,
+  description: business.support,
+  image: `${siteUrl}/images/hero.webp`,
+  logo: `${siteUrl}/images/logo.png`,
+  telephone: business.whatsapp.replace('https://wa.me/', '+'),
+  email: business.email,
+  sameAs: [business.instagram],
+  hasMap: mapsUrl,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: `${addressDetails.street}, ${business.complement} — ${addressDetails.neighborhood}`,
+    addressLocality: addressDetails.city,
+    addressRegion: addressDetails.region,
+    addressCountry: addressDetails.country,
+  },
+  openingHoursSpecification: business.hours.map(hour => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: hour.daysOfWeek,
+    opens: hour.opens,
+    closes: hour.closes,
+  })),
+};
 export const money = (value: number) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
 export const navigation = [
   { href: '#inicio', label: 'Início' },

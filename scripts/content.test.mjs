@@ -4,6 +4,19 @@ import { existsSync } from 'node:fs';
 import sharp from 'sharp';
 import { business, delivery, promotion, services, whatsapp, money } from '../src/data/business.ts';
 import { gallery, categories } from '../src/data/gallery.ts';
+import { siteUrl, localBusinessSchema } from '../src/data/business.ts';
+
+test('SEO uses the official domain and only confirmed local business facts', () => {
+  assert.equal(siteUrl, 'https://veritaslavajato.com.br');
+  assert.equal(localBusinessSchema.url, `${siteUrl}/`);
+  assert.equal(localBusinessSchema.name, business.name);
+  assert.equal(localBusinessSchema.email, business.email);
+  assert.equal(localBusinessSchema.address.addressLocality, 'Fortaleza');
+  assert.equal(localBusinessSchema.openingHoursSpecification.length, 2);
+  assert.ok(!JSON.stringify(localBusinessSchema).includes('Sunday'));
+  assert.ok(!('aggregateRating' in localBusinessSchema));
+  assert.ok(!('geo' in localBusinessSchema));
+});
 
 test('links preserve the exact delivery and promotion messages', () => {
   for (const offer of [delivery, promotion]) {
