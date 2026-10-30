@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "viewports": [
+    1440,
+    390,
+    768,
+    320
+  ],
+  "checks": [
+    "menu",
+    "anchors",
+    "links",
+    "filters",
+    "show more",
+    "modal",
+    "keyboard",
+    "focus trap",
+    "focus restoration",
+    "scroll lock",
+    "video metadata",
+    "no horizontal overflow",
+    "no JS errors"
+  ]
+}

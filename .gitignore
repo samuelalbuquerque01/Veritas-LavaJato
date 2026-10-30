@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local agent tools, caches, research images and capture artifacts
+/.codex/
+/.gemini/
+/.agents/
+/.impeccable/*
+!/.impeccable/design.json
+!/.impeccable/media-manifest.json
+!/.impeccable/video-manifest.json
+!/.impeccable/review/
+/.impeccable/review/*
+!/.impeccable/review/*.md
+!/.impeccable/review/browser-results.json
+**/__pycache__/

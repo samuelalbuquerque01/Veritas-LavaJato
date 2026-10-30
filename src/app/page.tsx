@@ -1,69 +1,39 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+﻿import Image from 'next/image';
+import Header from '@/components/Header';
+import Hero from '@/components/Hero';
+import Services from '@/components/Services';
+import Gallery from '@/components/Gallery';
+import { Delivery, Promotion } from '@/components/Offers';
+import Contact from '@/components/Contact';
+import Icon from '@/components/Icon';
+import { business } from '@/data/business';
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+  return <>
+    <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <Header />
+    <main id="conteudo">
+      <Hero />
+      <Services />
+      <Gallery />
+      <Delivery />
+      <Promotion />
+      <section className="section about-section" aria-labelledby="about-heading">
+        <div className="container about-layout">
+          <div className="about-photos">
+            <Image src="/images/works/img_5922.webp" width={1350} height={1800} sizes="(max-width: 760px) 48vw, 25vw" alt="Moto preta fotografada na Veritas" />
+            <Image src="/images/works/img_6105.webp" width={1350} height={1800} sizes="(max-width: 760px) 48vw, 25vw" alt="Volante e painel de um veículo nos registros da Veritas" />
+          </div>
+          <div className="about-copy">
+            <h2 id="about-heading">A verdade no cuidado.</h2>
+            <p className="about-lead">Somos a Veritas Lava Jato, em Messejana, Fortaleza.</p>
+            <p>Cuidamos de carros e motos, da carroceria ao interior. Aqui no site, você encontra nossos serviços e os registros reais do dia a dia da Veritas.</p>
+            <p>Venha conhecer o espaço ou converse com a gente para consultar os serviços e a lavagem delivery.</p>
+            <a className="text-link" href={business.instagram} target="_blank" rel="noopener noreferrer"><Icon name="instagram" /> Acompanhe a Veritas</a>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+      </section>
+      <Contact />
+    </main>
+  </>;
 }

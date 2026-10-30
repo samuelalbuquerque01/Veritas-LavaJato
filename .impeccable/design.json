@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-30T12:22:15.775Z",
+  "title": "Design System: Veritas Lava Jato",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Workshop Red"
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Deep Workshop Red"
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "Near Black"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Graphite"
+      },
+      "raised": {
+        "role": "neutral",
+        "displayName": "Raised Graphite"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Steel Rule"
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Silver White"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Soft Silver"
+      },
+      "paper": {
+        "displayName": "Silver Paper",
+        "role": "neutral"
+      },
+      "ink": {
+        "displayName": "Dark Ink",
+        "role": "neutral"
+      },
+      "paper-muted": {
+        "displayName": "Paper Gray",
+        "role": "neutral"
+      },
+      "paper-line": {
+        "displayName": "Paper Rule",
+        "role": "neutral"
+      },
+      "delivery": {
+        "displayName": "Delivery Red",
+        "role": "primary"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Expressive hero heading."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Readable information and descriptions."
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating-contact",
+        "value": "0 6px 20px #0004",
+        "purpose": "Separate the floating WhatsApp action from page content."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-transition",
+        "value": ".2s",
+        "purpose": "Background, text color and border states."
+      },
+      {
+        "name": "gallery-zoom",
+        "value": ".4s cubic-bezier(.2,.8,.2,1)",
+        "purpose": "Photo hover scale to 1.025; disabled with reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-desktop",
+        "value": "1100px"
+      },
+      {
+        "name": "tablet",
+        "value": "900px"
+      },
+      {
+        "name": "mobile",
+        "value": "760px"
+      },
+      {
+        "name": "narrow",
+        "value": "360px"
+      },
+      {
+        "name": "wide",
+        "value": "1600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary WhatsApp action.",
+      "html": "<button class=\"ds-primary\">Solicitar atendimento</button>",
+      "css": ".ds-primary{font-family:var(--body);font-size:14px;font-weight:700;line-height:1.5;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 22px;border:1px solid transparent;border-radius:4px;cursor:pointer;transition:background .2s,color .2s,border-color .2s;background:var(--red);color:#fff}.ds-primary:hover{background:var(--red-hover)}.ds-primary:active{transform:translateY(1px)}.ds-primary:focus-visible{outline:3px solid currentColor;outline-offset:5px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary gallery action.",
+      "html": "<button class=\"ds-outline\">Ver mais trabalhos</button>",
+      "css": ".ds-outline{font-family:var(--body);font-size:14px;font-weight:700;line-height:1.5;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 22px;border:1px solid transparent;border-radius:4px;cursor:pointer;transition:background .2s,color .2s,border-color .2s;background:transparent;color:var(--text);border-color:#74797d}.ds-outline:hover{background:var(--raised);border-color:var(--text)}.ds-outline:active{transform:translateY(1px)}.ds-outline:focus-visible{outline:3px solid currentColor;outline-offset:5px}"
+    },
+    {
+      "name": "Gallery Filters",
+      "kind": "chip",
+      "refersTo": "filter-selected",
+      "description": "Inverted selected category.",
+      "html": "<div class=\"ds-filters\"><button aria-pressed=\"true\">Todos</button><button aria-pressed=\"false\">Carros</button><button aria-pressed=\"false\">Motos</button></div>",
+      "css": ".ds-filters{display:flex;gap:6px;flex-wrap:wrap}.ds-filters button{font-family:var(--body);border:1px solid transparent;background:transparent;padding:10px 21px;min-height:44px;border-radius:3px;color:var(--muted);font-size:14px;cursor:pointer}.ds-filters button:hover{color:var(--text);background:var(--raised)}.ds-filters button[aria-pressed=true]{background:var(--text);color:var(--bg)}.ds-filters button:focus-visible{outline:3px solid currentColor;outline-offset:5px}"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Desktop section links and contact action.",
+      "html": "<nav class=\"ds-navigation\"><a href=\"#servicos\">Serviços</a><a href=\"#trabalhos\">Trabalhos</a><a class=\"ds-contact\" href=\"#contato\">Fale com a Veritas</a></nav>",
+      "css": ".ds-navigation{display:flex;align-items:center;gap:26px;background:var(--bg);color:var(--text);font-family:var(--body);font-size:13px;font-weight:600}.ds-navigation a{display:inline-flex;align-items:center;min-height:44px;color:inherit;text-decoration:none}.ds-navigation a:hover{color:#ff8c93}.ds-navigation .ds-contact{padding:10px 15px;border:1px solid #696d72;border-radius:4px;margin-left:6px}.ds-navigation a:focus-visible{outline:3px solid currentColor;outline-offset:5px}"
+    },
+    {
+      "name": "Open Promotion Price",
+      "kind": "custom",
+      "refersTo": "promotion-price",
+      "description": "Price and contact action without an enclosing card.",
+      "html": "<div class=\"ds-price\"><p><strong>R$ 349,99</strong><span>no Pix</span></p><button class=\"ds-price-action\">Consultar promoção</button></div>",
+      "css": ".ds-price{padding-top:22px;color:var(--text);font-family:var(--body)}.ds-price>p{display:flex;flex-wrap:wrap;align-items:baseline;gap:14px;line-height:1.1;margin:0 0 16px}.ds-price strong{font-family:var(--display);font-size:clamp(56px,5.5vw,78px);font-weight:500;letter-spacing:-.025em;white-space:nowrap}.ds-price span{font-size:15px}.ds-price-action{font-family:var(--body);font-size:14px;font-weight:700;line-height:1.5;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:15px 22px;border:1px solid transparent;border-radius:4px;cursor:pointer;transition:background .2s,color .2s,border-color .2s;width:100%;background:var(--red);color:#fff}.ds-price-action:hover{background:var(--red-hover)}.ds-price-action:active{transform:translateY(1px)}.ds-price-action:focus-visible{outline:3px solid currentColor;outline-offset:5px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Detail Workshop",
+    "overview": "Real vehicles and the physical workshop lead the experience. Near-black, graphite, silver and red express the automotive identity; condensed headings sit at a human scale beside readable supporting copy and direct contact actions.\n\nThe opening gives the photograph more space than the invitation alongside it. Practical visit information follows immediately. Silver service menus, an uneven photographic gallery, a red delivery rate sheet, an open promotion composition and staggered workshop photographs create distinct reading rhythms without decorative overlays.",
+    "keyCharacteristics": [
+      "Real service photography comes first.",
+      "Compact condensed headings and readable supporting text.",
+      "Silver information surfaces and a red commercial delivery region.",
+      "Ruled menus, open compositions and restrained movement."
+    ],
+    "rules": [
+      {
+        "name": "The Accent Has a Job Rule",
+        "body": "Use red for contact actions and the delivery offer within the black, graphite and silver identity.",
+        "section": "colors"
+      }
+    ],
+    "dos": [
+      "Do retain the black, graphite, silver and red automotive identity.",
+      "Do put real service photography and practical contact information in the foreground.",
+      "Do use condensed headings at a scale that leaves room for photographs.",
+      "Do maintain visible keyboard focus and respect reduced motion.",
+      "Do use varied open compositions, ruled menus and distinct color regions."
+    ],
+    "donts": [
+      "Don't reproduce promotional posters as the web page composition.",
+      "Don't replace real-work evidence with invented results or unsupported before-and-after imagery.",
+      "Don't add decorative overlays that obscure the vehicles or workshop."
+    ]
+  }
+}
